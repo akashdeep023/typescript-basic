@@ -152,7 +152,7 @@ interface UserA {
 	age: number;
 }
 
-function filteredUsers(users: User[]) {
+function filteredUsers(users: UserA[]) {
 	return users.filter((x) => x.age >= 18);
 }
 
