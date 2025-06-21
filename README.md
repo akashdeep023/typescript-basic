@@ -167,3 +167,105 @@ Then try disabling it
 
 5. removeComments
     - Weather or not to include comments in the final `js` file
+
+## What are interfaces
+
+How can you assign types to objects? For example, a user object that looks like this -
+
+```ts
+const user = {
+	firstName: "harkirat",
+	lastName: "singh",
+	email: "email@gmail.com".
+	age: 21,
+}
+```
+
+> To assign a type to the `user` object, you can use `interfaces`
+
+```ts
+interface User {
+	firstName: string;
+	lastName: string;
+	email: string;
+	age: number;
+}
+```
+
+## Implementing interfaces
+
+> Interfaces have another special property. You can implement interfaces as a class.
+> Let’s say you have an personinterface -
+
+```ts
+interface Person {
+	name: string;
+	age: number;
+	greet(phrase: string): void;
+}
+```
+
+> You can create a class which implements this interface.
+> This is useful since now you can create multiple variants of a person (Manager, CEO …)
+
+```ts
+class Employee implements Person {
+	name: string;
+	age: number;
+
+	constructor(n: string, a: number) {
+		this.name = n;
+		this.age = a;
+	}
+
+	greet(phrase: string) {
+		console.log(`${phrase} ${this.name}`);
+	}
+}
+```
+
+## What are types?
+
+Very similar to `interfaces` , types let you `aggregate` data together.
+
+```ts
+type User = {
+	firstName: string;
+	lastName: string;
+	age: number;
+};
+```
+
+### Unions
+
+```ts
+type StringOrNumber = string | number;
+```
+
+> You can not do this using `interfaces`
+
+### Intersection
+
+```ts
+type Employee = {
+	name: string;
+	startDate: Date;
+};
+
+interface Manager = {
+	name: string;
+	department: string;
+};
+
+type TeamLead = Employee & Manager;
+```
+
+> You can not do this using interfaces
+
+## Arrays in TS
+
+If you want to access arrays in typescript, it’s as simple as adding a [] annotation next to the type
+
+```ts
+type NumberArr = number[];
+```
