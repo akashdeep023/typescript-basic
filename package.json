@@ -1,0 +1,13 @@
+{
+  "name": "typescript-basic",
+  "version": "1.0.0",
+  "description": "The terms strongly typed and loosely typed refer to how programming languages handle types, particularly how strict they are about type conversions and type safety.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
