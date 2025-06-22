@@ -170,3 +170,63 @@ console.log(
 		},
 	])
 );
+
+// Enums in TS
+// Let’s say you have a game where you have to perform an action based on weather the user has pressed the up arrow key, down arrow key, left arrow key or right arrow key.
+// use type to handle this
+type InputType = "up" | "down" | "left" | "right";
+
+function doSomething(keyPressed: InputType) {
+	if (keyPressed == "up") {
+		// do something.
+	}
+	//..
+}
+doSomething("up");
+doSomething("down");
+// doSomething("random"); // Worng
+
+// use enums - define a set of named constants
+// The final value stored at runtime is still a number (0, 1, 2, 3).
+enum Direction {
+	Up, // 1
+	Down, // 2
+	Left, // 3
+	Right, // 4
+}
+// enum Direction {
+// 	Up = "up", // "up"
+// 	Down = "down", // "down"
+// 	Left = "left", // "left"
+// 	Right = "right", // "right"
+// }
+// enum Direction {
+// 	Up = 1, // 1 -> implicityly assign value
+// 	Down, // 2
+// 	Left, // 3
+// 	Right, // 4
+// }
+function doSomethingE(keyPressed: Direction) {
+	if (keyPressed == Direction.Up) {
+		// do something.
+	}
+	//..
+}
+doSomethingE(Direction.Up);
+doSomethingE(Direction.Down);
+console.log(Direction.Up);
+console.log(Direction.Down);
+
+// In Express.js use enums values
+// enum ResponseStatus {
+//     Success = 200,
+//     NotFound = 404,
+//     Error = 500
+// }
+
+// app.get("/"", (req, res) => {
+//     if (!req.query.userId) {
+// 			res.status(ResponseStatus.Error).json({})
+//     }
+// 		res.status(ResponseStatus.Success).json({});
+// })
