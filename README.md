@@ -296,3 +296,42 @@ function identity<T>(arg: T): T {
 let output1 = identity<string>("myString");
 let output2 = identity<number>(100);
 ```
+
+## Exporting and importing modules
+
+TypeScript follows the ES6 module system, using `import` and `export` statements to share code between different files. Here's a brief overview of how this works:
+
+### Constant exports
+
+```ts
+export function add(x: number, y: number): number {
+	return x + y;
+}
+
+export function subtract(x: number, y: number): number {
+	return x - y;
+}
+```
+
+```ts
+import { add } from "./math";
+
+add(1, 2);
+```
+
+### Default exports
+
+```ts
+export default class Calculator {
+	add(x: number, y: number): number {
+		return x + y;
+	}
+}
+```
+
+```ts
+import Calculator from "./Calculator";
+
+const calc = new Calculator();
+console.log(calc.add(10, 5));
+```
