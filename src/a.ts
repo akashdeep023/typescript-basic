@@ -230,3 +230,37 @@ console.log(Direction.Down);
 //     }
 // 		res.status(ResponseStatus.Success).json({});
 // })
+
+// Generics in TS
+// Let’s say you have a function that needs to return the first element of an array. Array can be of type either string or integer.
+type InputT = string | number;
+// return InputT type
+function getFirstElement(arr: InputT[]) {
+	return arr[0];
+}
+const el = getFirstElement([1, 2, 3]);
+
+// User can send different types of values in inputs, without any type errors - (Problem)
+const el2 = getFirstElement([1, 2, "3"]); // string or intger
+// Typescript isn’t able to infer the right type of the return type - (Problem)
+const el3 = getFirstElement(["harkiratSingh", "ramanSingh"]);
+// console.log(el.toLowerCase()); // this property doesn't exist on type InputT]
+
+// Solution using on Generics
+// Generics enable you to create components that work with any data type while still providing compile-time type safety.
+function identity<T>(arg: T): T {
+	return arg;
+}
+let output1 = identity<string>("myString");
+let output2 = identity<number>(100);
+
+function getFirstElementGen<T>(arr: T[]) {
+	return arr[0];
+}
+
+const ot1 = getFirstElementGen(["harkiratSingh", "ramanSingh"]);
+console.log(ot1.toLowerCase());
+const ot12 = getFirstElementGen<string>(["harkiratSingh", "ramanSingh"]);
+const ot13 = getFirstElementGen<number>([1, 2, 3]);
+
+// const ot4 = getFirstElementGen<string>(["harkiratSingh", 2]); // Error: Type 'number' is not assignable to type 'string'.

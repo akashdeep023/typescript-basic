@@ -283,3 +283,16 @@ enum Direction {
 	Right,
 }
 ```
+
+## Generics
+
+Generics are a language independent concept (exist in C++ as well)
+Generics enable you to create components that work with any data type while still providing compile-time type safety.
+
+```ts
+function identity<T>(arg: T): T {
+	return arg;
+}
+let output1 = identity<string>("myString");
+let output2 = identity<number>(100);
+```
