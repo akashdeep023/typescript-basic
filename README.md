@@ -64,7 +64,7 @@ Typescript code never runs in your browser. Your browser can only understand `ja
                                      |         |
   ____________        ____________  /| Browser |
  |            |      |            |/ |_________|
- | JavaScript |-TSC->| JavaScript |   _________
+ | TypeScript |-TSC->| JavaScript |   _________
  |____________|      |____________|\ |         |
                                     \| Node.js |
                                      |_________|
